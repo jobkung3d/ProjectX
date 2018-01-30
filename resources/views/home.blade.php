@@ -8,7 +8,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  @include('admin.layout.inc-stylesheet')
+  @include('layouts.inc-stylesheet')
   @yield('stylesheet')
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
@@ -17,7 +17,7 @@
 
 
   <!-- /.navbar-header -->
-  @include('admin.layout.inc-header')
+  @include('layouts.inc-header')
   <!-- /.navbar-top-links -->
 
 
@@ -71,11 +71,11 @@
   <!-- /.content-wrapper -->
 
 
-  @include('admin.layout.inc-footer')
+  @include('layouts.inc-footer')
   @yield('scripts')
 <!-- ./wrapper -->
 
-@include('admin.layout.inc-scripts')
+@include('layouts.inc-scripts')
 @yield('scripts')
 </body>
 </html>
