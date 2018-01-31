@@ -10,3 +10,9 @@
   <!-- /.container -->
 </footer>
 </div>
+<!-- ./wrapper -->
+
+@include('layouts.inc-scripts')
+@yield('scripts')
+</body>
+</html>
