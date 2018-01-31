@@ -24,7 +24,7 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+      <div class="collapse navbar-collapse pull-left" id="navbar-collapse"> 
         <ul class="nav navbar-nav">
           <li class="{{Request::path()=='home'?'active':''}}"><a href="home">Dashboard <span class="sr-only">(current)</span></a></li>
           <li class="{{Request::path()=='movie'?'active':''}}"><a href="./movie">Movie</a></li>
