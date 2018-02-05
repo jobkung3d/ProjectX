@@ -17,5 +17,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/movie', 'RedirController@redirMovie')->name('movie');
+Route::get('/dashboard','DashboardController@getIndex')->name('dashboard');

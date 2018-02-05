@@ -1,4 +1,3 @@
-<!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="container">
     <div class="pull-right hidden-xs">
@@ -9,10 +8,3 @@
   </div>
   <!-- /.container -->
 </footer>
-</div>
-<!-- ./wrapper -->
-
-@include('layouts.inc-scripts')
-@yield('scripts')
-</body>
-</html>

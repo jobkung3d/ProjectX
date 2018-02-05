@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>AdminLTE 2 | Top Navigation</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
-  @include('layouts.inc-stylesheet')
-</head>
-<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-<body class="hold-transition skin-blue layout-top-nav">
-<div class="wrapper">
 <header class="main-header">
   <nav class="navbar navbar-static-top">
     <div class="container">
@@ -24,9 +9,9 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse pull-left" id="navbar-collapse"> 
+      <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="{{Request::path()=='home'?'active':''}}"><a href="home">Dashboard <span class="sr-only">(current)</span></a></li>
+          <li class="{{Request::path()=='dashboard'?'active':''}}"><a href="dashboard">Dashboard <span class="sr-only">(current)</span></a></li>
           <li class="{{Request::path()=='movie'?'active':''}}"><a href="./movie">Movie</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -146,6 +131,11 @@
               </li>
             </ul>
           </li>
+
+          @guest
+              <li><a href="{{ route('login') }}">Login</a></li>
+              <li><a href="{{ route('register') }}">Register</a></li>
+          @else
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
@@ -153,7 +143,7 @@
               <!-- The user image in the navbar-->
               <img src="{{ URL::asset('dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -198,6 +188,10 @@
               </li>
             </ul>
           </li>
+          @endguest
+
+
+
         </ul>
       </div>
       <!-- /.navbar-custom-menu -->
