@@ -12,10 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/movie', 'RedirController@redirMovie')->name('movie');
+Route::get('/todo', 'RedirController@redirTodo')->name('todo');
 Route::get('/dashboard','DashboardController@getIndex')->name('dashboard');
+
+Route::post('/todo', 'TodoListController@store')->name('todo');

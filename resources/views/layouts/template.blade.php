@@ -9,7 +9,6 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   @include('layouts.inc-stylesheet')
-
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-blue layout-top-nav">
@@ -26,7 +25,7 @@
         </section>
 
         @yield('content')
-        
+
       </div>
     </div>
 

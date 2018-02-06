@@ -25,4 +25,8 @@ class RedirController extends Controller
     {
         return view('layouts.movie.movie-list');
     }
+    public function redirTodo()
+    {
+        return view('layouts.todo.todo');
+    }
 }
