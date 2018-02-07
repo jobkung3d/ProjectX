@@ -1,5 +1,5 @@
 <?php
-
+use App\data_todo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +22,5 @@ Route::get('/todo', 'RedirController@redirTodo')->name('todo');
 Route::get('/dashboard','DashboardController@getIndex')->name('dashboard');
 
 Route::post('/todo', 'TodoListController@store')->name('todo');
+Route::get('/todo', 'TodoListController@displayTasks');
+Route::delete('/todo/{id}', 'TodoListController@destroy');

@@ -21,4 +21,18 @@ class TodoListController extends Controller
 
       return back()->with('success', 'Product has been added');;
   }
+
+  public function displayTasks()
+  {
+      $tasks = data_todo::all()->toArray();
+      return view('layouts.todo.todo', compact('tasks'));
+  }
+  public function destroy($id)
+  {
+      $task = data_todo::find($id);
+      $task->delete();
+      return redirect('todo')->with('success','Product has been  deleted');
+
+  }
+
 }
