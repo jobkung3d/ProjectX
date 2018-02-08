@@ -16,6 +16,7 @@ class CreateDataTodosTable extends Migration
         Schema::create('data_todos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('usr-id');
             $table->timestamps();
         });
     }

@@ -7,9 +7,7 @@
       <div class="box box-solid">
         <div class="box-body">
           <h2>Current Task</h2>
-
           <table class="table table-striped task-table">
-
               <!-- Table Headings -->
               <thead>
                   <th>Task</th>
@@ -19,6 +17,7 @@
               <!-- Table Body -->
               <tbody>
                   @foreach ($tasks as $task)
+
                       <tr>
                           <!-- Task Name -->
                           <td class="table-text">
@@ -62,6 +61,7 @@
               <div class="form-group col-md-4 col-md-offset-4">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" name="name">
+                <input type="hidden" class="form-control" name="usr-id" value="{{ Auth::user()->id }}">
               </div>
             </div>
             <div class="row">

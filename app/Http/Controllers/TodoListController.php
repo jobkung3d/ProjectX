@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\data_todo;
 class TodoListController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
   public function create()
   {
       return view('todo');
@@ -15,16 +20,19 @@ class TodoListController extends Controller
   {
       $todo = $this->validate(request(), [
         'name' => 'required',
+        'usr-id' => 'required',
       ]);
 
       data_todo::create($todo);
 
-      return back()->with('success', 'Product has been added');;
+      return back()->with('success', 'Product has been added');
   }
 
   public function displayTasks()
   {
-      $tasks = data_todo::all()->toArray();
+      $user = Auth::User();
+      $userId = $user->id;
+      $tasks = data_todo::all()->where('usr-id', '=', $userId)->toArray();
       return view('layouts.todo.todo', compact('tasks'));
   }
   public function destroy($id)
