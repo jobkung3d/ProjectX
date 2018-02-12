@@ -29,4 +29,8 @@ class RedirController extends Controller
     {
         return view('layouts.todo.todo');
     }
+    public function redirRes()
+    {
+        return view('layouts.restaurant.restaurant');
+    }
 }

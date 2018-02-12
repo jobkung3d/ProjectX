@@ -20,7 +20,7 @@ class TodoListController extends Controller
   {
       $todo = $this->validate(request(), [
         'name' => 'required',
-        'usr-id' => 'required',
+        'usr_id' => 'required',
       ]);
 
       data_todo::create($todo);
@@ -32,7 +32,7 @@ class TodoListController extends Controller
   {
       $user = Auth::User();
       $userId = $user->id;
-      $tasks = data_todo::all()->where('usr-id', '=', $userId)->toArray();
+      $tasks = data_todo::all()->where('usr_id', '=', $userId)->toArray();
       return view('layouts.todo.todo', compact('tasks'));
   }
   public function destroy($id)

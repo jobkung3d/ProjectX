@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDataTodosTable extends Migration
+class CreateRestaurantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDataTodosTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_todos', function (Blueprint $table) {
+        Schema::create('restaurant', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('usr_id');
@@ -28,6 +28,6 @@ class CreateDataTodosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_todos');
+        Schema::dropIfExists('restaurant');
     }
 }

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class data_todo extends Model
 {
 
-  protected $fillable = ['name','usr-id'];
+  protected $fillable = ['name','usr_id'];
 }

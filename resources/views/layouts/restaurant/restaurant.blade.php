@@ -6,26 +6,26 @@
     <div class="col-xs-6">
       <div class="box box-solid">
         <div class="box-body">
-          <h2>Current Task</h2>
+          <h2>Current Restaurant</h2>
           <table class="table table-striped task-table">
               <!-- Table Headings -->
               <thead>
-                  <th>Task</th>
+                  <th>Restaurant</th>
                   <th>&nbsp;</th>
               </thead>
 
               <!-- Table Body -->
               <tbody>
-                  @foreach ($tasks as $task)
+                   @foreach ($res as $res)
 
                       <tr>
                           <!-- Task Name -->
                           <td class="table-text">
-                              <div>{{ $task['name'] }}</div>
+                              <div>{{ $res['name'] }}</div>
                           </td>
 
                           <td>
-                            <form action="./todo/{{ $task['id'] }}" method="POST">
+                            <form action="./restaurant/{{ $res['id'] }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
@@ -40,7 +40,7 @@
       </div>
       <div class="box box-solid">
         <div class="box-body">
-          <h2>Create A Todo Lists</h2><br  />
+          <h2>Create A Restaurant</h2><br  />
           @if ($errors->any())
           <div class="alert alert-danger">
               <ul>
@@ -55,7 +55,7 @@
               <p>{{ \Session::get('success') }}</p>
           </div><br />
           @endif
-          <form method="post" action="{{ url('todo') }}">
+          <form method="post" action="{{ url('restaurant') }}">
             {{csrf_field()}}
             <div class="row">
               <div class="form-group col-md-4 col-md-offset-4">
@@ -66,7 +66,7 @@
             </div>
             <div class="row">
               <div class="form-group col-md-4 col-md-offset-4">
-                <button type="submit" class="btn btn-success" style="margin-left:38px">Add todo</button>
+                <button type="submit" class="btn btn-success" style="margin-left:38px">Add Restaurant</button>
               </div>
             </div>
           </form>
