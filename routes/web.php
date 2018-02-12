@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/movie', 'RedirController@redirMovie')->name('movie');
 Route::get('/todo', 'RedirController@redirTodo')->name('todo');
 Route::get('/restaurant','RedirController@redirRes')->name('restaurant');
 Route::get('/dashboard','DashboardController@getIndex')->name('dashboard');
@@ -25,6 +24,8 @@ Route::get('/dashboard','DashboardController@getIndex')->name('dashboard');
 Route::post('/todo', 'TodoListController@store')->name('todo');
 Route::post('/restaurant', 'RestaurantController@store')->name('restaurant');
 Route::get('/todo', 'TodoListController@displayTasks');
+//Route::get('/dashboard', 'TodoListController@displayTasks');
 Route::get('/restaurant', 'RestaurantController@display');
+Route::get('/dashboard', 'DashboardController@Resdisplay');
 Route::delete('/todo/{id}', 'TodoListController@destroy');
 Route::delete('/restaurant/{id}', 'RestaurantController@destroy');
