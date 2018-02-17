@@ -14,6 +14,7 @@
           <li class="{{Request::path()=='dashboard'?'active':''}}"><a href="dashboard">Dashboard <span class="sr-only">(current)</span></a></li>
           <li class="{{Request::path()=='todo'?'active':''}}"><a href="./todo">Todo</a></li>
           <li class="{{Request::path()=='restaurant'?'active':''}}"><a href="./restaurant">Restaurant</a></li>
+          <li class="{{Request::path()=='friend'?'active':''}}"><a href="./friend">Friend</a></li>
           <li class="{{Request::path()=='movie'?'active':''}}"><a href="./movie">Movie</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>

@@ -1,5 +1,6 @@
 <?php
 use App\data_todo;
+use App\Restaurant;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +18,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/todo', 'RedirController@redirTodo')->name('todo');
-Route::get('/restaurant','RedirController@redirRes')->name('restaurant');
-Route::get('/dashboard','DashboardController@getIndex')->name('dashboard');
+// Route::get('/todo', 'RedirController@redirTodo')->name('todo');
+// Route::get('/restaurant','RedirController@redirRes')->name('restaurant');
+// Route::get('/dashboard','DashboardController@getIndex')->name('dashboard');
 
 Route::post('/todo', 'TodoListController@store')->name('todo');
 Route::post('/restaurant', 'RestaurantController@store')->name('restaurant');
 Route::get('/todo', 'TodoListController@displayTasks');
+Route::get('/friend', 'FriendController@index');
+Route::post('/friend', 'FriendController@create');
 //Route::get('/dashboard', 'TodoListController@displayTasks');
 Route::get('/restaurant', 'RestaurantController@display');
 Route::get('/dashboard', 'DashboardController@Resdisplay');

@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Restaurant;
+use App\Friend;
 
-class RestaurantController extends Controller
+class FriendController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +19,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $fri = Friend::all()->toArray();
+        return view('layouts.friend.friend',compact('fri'));
     }
 
     /**
@@ -29,7 +30,20 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('restaurant');
+      $fri = $this->validate(request(), [
+        'first_name'  => '',
+        'last_name'   => '',
+        'nickname'    => 'required',
+        'birthday'    => '',
+        'address'     => '',
+        'bank_account'=> '',
+        'status_noti'=> '',
+        'status'=> ''
+      ]);
+
+      Friend::create($fri);
+
+      return back()->with('success', 'Friend has been added');
     }
 
     /**
@@ -40,23 +54,9 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $res = $this->validate(request(), [
-          'name' => 'required',
-          'usr_id' => 'required',
-        ]);
-
-        Restaurant::create($res);
-
-        return back()->with('success', 'Product has been added');
+        //
     }
 
-    public function display()
-    {
-        $user = Auth::User();
-        $userId = $user->id;
-        $res = Restaurant::all()->where('usr_id', '=', $userId)->toArray();
-        return view('layouts.restaurant.restaurant', compact('res'));
-    }
     /**
      * Display the specified resource.
      *
@@ -99,8 +99,6 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
-        $res = Restaurant::find($id);
-        $res->delete();
-        return redirect('restaurant')->with('success','Product has been  deleted');
+        //
     }
 }
